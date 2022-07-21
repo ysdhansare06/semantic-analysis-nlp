@@ -24,13 +24,6 @@ verbs=[]
 aux=[]
 ners=[]
 deps=[]
-#for token in doc:
-#    tokens.append(token.text)
-#    pos.append(token.pos_)
-#    if token.pos_=='VERB' or token.pos_=='AUX':
-#        verbs.append(token)
-#    if token.pos_=='AUX':
-#        aux.append(token)
 
 # task: finding the verb in each sentence  --> printing what is left to the verb and what is right to the verb --> (left,verb,right)
 
@@ -57,14 +50,6 @@ for i in verbs:
     if i not in newverbs:
         newverbs.append(i)
 
-#print(verbs)
-
-#['is', 'die', 'continue', 'live', 'threatened', 'becomes', 'can', 
-# 'survive', 'leaves', 'enables', 'is', 'enhanced', 'examines', 
-# 'underlying', 'living', 'explains', 'flowering', 'relate', \
-# 'can', 'be', 'avoided', 'is', 'presented', 'complete']
-
-
 lverb=[]
 rverb=[]
 for sent in sentences:
@@ -77,23 +62,7 @@ for sent in sentences:
                 lverb.append(left)
                 right=sent[ind+len(verb)+1:]
                 rverb.append(right)
-#
-#print(f'Left to the verb:  {lverb}.')
-#print(len(sentences))
-#print(len(newverbs))
-#print(len(lverb))
-#print(f'\nRight to the verb:  {rverb}.')
-#print(len(rverb))
-
-# removing unnecessary words in the left and right sentences
-
-#for i in range(1,5):
-#    print(lverb[i]+"<--"+newverbs[i]+"-->"+rverb[i])
-
-#print(tokens)
-#print(len(tokens))
-#print(deps)  
-#print(len(deps))   
+  
 
 dict = {'Left to Verb':lverb, 'verb':verbs, 'Right to verb':rverb}
 df = pd.DataFrame(dict)
